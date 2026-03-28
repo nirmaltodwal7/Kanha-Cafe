@@ -12,6 +12,7 @@ const navLinks = [
   { href: '/menu', label: 'Menu' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
+  { href: '/table-booking', label: 'Table Booking' },
 ];
 
 export default function Navbar() {
