@@ -30,7 +30,7 @@ export default function CheckoutPage() {
   // Business Constraints
   const deliveryFee = total >= 500 ? 0 : 49;
   const grandTotal = total + deliveryFee;
-  const merchantUpiId = '9636159629-2@ybl'; // Replace with real merchant UPI
+  const merchantUpiId = '9602870828@ybl'; // Replace with real merchant UPI
   const storeName = 'KanhaBakers';
   const whatsappNumber = '919636159629'; // Updated to user's number
   
