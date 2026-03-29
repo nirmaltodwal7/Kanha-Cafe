@@ -281,45 +281,21 @@ export default function CheckoutPage() {
                    
                    {!isRedirecting ? (
                      <>
-                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 border-2 border-white shadow-sm">
-                           <CheckCircle size={32} className="text-green-600" />
+                        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 border-4 border-white shadow-lg">
+                           <MessageCircle size={36} className="text-green-600" />
                         </div>
-                        <h2 className="font-display font-bold text-2xl text-gray-900 mb-6">Payment Completed</h2>
-                        
-                        <div className="bg-gray-50/80 p-5 rounded-2xl w-full max-w-sm text-left mb-6 border border-gray-100">
-                          <p className="font-bold text-gray-800 mb-3 flex items-center gap-2"><span className="text-xl">📦</span> Order Summary:</p>
-                          <ul className="space-y-2 mb-4">
-                            {items.map(item => (
-                              <li key={item.id} className="text-sm text-gray-600 flex justify-between border-b border-gray-200/50 pb-2">
-                                <span>{item.name} x {item.quantity}</span>
-                                <span className="font-medium">₹{item.price * item.quantity}</span>
-                              </li>
-                            ))}
+                        <h2 className="font-display font-bold text-3xl text-gray-900 mb-4">Final Step</h2>
+                        <div className="bg-green-50/50 p-5 rounded-2xl border border-green-100 max-w-md text-green-800 text-left mb-8 text-sm">
+                          <p className="font-bold mb-2">We will now redirect you to WhatsApp.</p>
+                          <ul className="list-disc pl-5 space-y-1 text-green-700 font-medium">
+                            <li>An order summary message will be auto-generated.</li>
+                            {paymentMethod === 'upi' && <li><strong>IMPORTANT:</strong> After redirect, please attach your payment screenshot in WhatsApp before sending.</li>}
+                            <li>Hit send to confirm your order!</li>
                           </ul>
-                          
-                          <p className="font-bold text-gray-900 flex justify-between pt-1 mb-6">
-                            <span className="flex items-center gap-2"><span className="text-xl">💰</span> Total Amount:</span>
-                            <span className="text-xl text-bakery-600">₹{grandTotal}</span>
-                          </p>
-
-                          {paymentMethod === 'upi' && screenshotPreview && (
-                            <div>
-                              <p className="font-bold text-gray-800 mb-3 flex items-center gap-2"><span className="text-xl">📎</span> Uploaded Screenshot:</p>
-                              <div className="relative w-full h-32 rounded-xl overflow-hidden shadow-sm border border-gray-200">
-                                <Image src={screenshotPreview} alt="Screenshot preview" fill className="object-cover" />
-                              </div>
-                            </div>
-                          )}
                         </div>
-
-                        {paymentMethod === 'upi' && (
-                          <div className="bg-yellow-50 text-yellow-800 p-3 rounded-xl max-w-sm mb-6 text-sm border border-yellow-200/50 font-medium">
-                            <strong>⚠️ IMPORTANT:</strong> After WhatsApp opens, please attach the payment screenshot manually and click SEND.
-                          </div>
-                        )}
                         
                         <button onClick={handleSubmitFinal} className="bg-green-600 hover:bg-green-700 text-white font-bold text-lg w-full max-w-sm py-4 rounded-xl shadow-xl shadow-green-600/30 flex items-center justify-center gap-2 transition-colors">
-                          <MessageCircle size={22} className="text-white" /> Send to WhatsApp
+                          <MessageCircle size={22} className="text-white" /> Open WhatsApp
                         </button>
                      </>
                    ) : (

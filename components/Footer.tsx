@@ -10,7 +10,7 @@ const links = {
     { label: 'Menu', href: '/menu' },
     { label: 'About Us', href: '/about' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Table Booking', href: '/table-booking' },
+    { label: 'Table Booking', href: '/booking' },
   ],
   Categories: [
     { label: 'Cakes', href: '/menu?cat=Cakes' },
